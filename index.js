@@ -35,8 +35,9 @@ document.querySelector(".print-name").addEventListener("click",function(){
 });
 
 // Add city
+        var cities =[];
 document.querySelector(".add-city").addEventListener("click",function(){
-        let cities =[];
+        document.querySelectorAll(".output")[1].innerHTML="";
         let newCity = document.querySelector(".userv").value;
         cities.push(newCity);
         if (newCity !=="") {
@@ -58,7 +59,7 @@ document.querySelector(".add-city").addEventListener("click",function(){
                         alert('Please fill input field')
                     }
                 });`;
-                document.querySelectorAll(".output")[1].innerHTML +=cities[i]+"<br>";
+                document.querySelectorAll(".output")[1].innerHTML +=i+1+": "+cities[i]+"<br>";
             }
         }
         else {
@@ -84,37 +85,6 @@ document.querySelector(".print-city").addEventListener("click",function(){
             document.querySelectorAll(".output")[1].innerHTML +=i+1+": "+cities[i]+ "<br>";
             }
 });
-
-// var x = 0;
-// const cities = Array();
-// document.querySelector(".add-city").addEventListener("click",function(){
-//     document.querySelector(".input").innerHTML ="";
-//     document.querySelectorAll(".output")[1].innerHTML="";
-//     alert("Enter four values")
-//         while (cities.length<5) {
-            
-//             var valueIn = document.querySelector(".userv").value = prompt("Enter");
-//             cities[x]= valueIn;
-//             if (!valueIn==0){
-//                 document.querySelector(".input").innerHTML = `var x = 0;
-//                 const cities = Array();
-//                     document.querySelector(".add-city").addEventListener("click",function(){
-//                         alert("Enter")
-//                         cities[0]= document.querySelector(".userv").value; 
-//                         document.querySelector(".input").innerHTML += x +" : "+cities[x] +"<br>";
-//                         document.querySelectorAll(".output")[1].innerHTML +=cities[x]+ "<br>";
-//                         x++;
-                        
-//                     });`;
-//                     document.querySelectorAll(".output")[1].innerHTML +=x+1+": "+cities[x]+ "<br>";
-//                     x++;
-//                 }
-//                 else{
-//                     alert("Enter value in input field")
-//                 }
-            
-//             }
-// });
     
 // Generate table 
 document.querySelector(".gen-tbl").addEventListener("click",function(){
@@ -154,6 +124,21 @@ document.querySelector(".clr-bth").addEventListener("click",function(){
     document.querySelectorAll(".output")[1].innerHTML="";
 });
 
+// Delete last 
+// we will use above array as it has global scope
+document.querySelector(".dlt-btn").addEventListener("click",function(){ 
+    var outputData = document.querySelectorAll(".output")[1].innerHTML;
+    if (!outputData==""){
+        cities.pop();
+        document.querySelectorAll(".output")[1].innerHTML="";
+        for(var i=0; i<cities.length; i++){
+            document.querySelectorAll(".output")[1].innerHTML +=i+1+": "+cities[i]+ "<br>";
+            }
+    }
+    else{
+        alert("Output is empty")
+    }
+});
 // Copyright year 
 var copyRightYear=new Date().getFullYear();
 document.querySelector(".copyright-year").innerHTML=`<em>${copyRightYear}</em>`;

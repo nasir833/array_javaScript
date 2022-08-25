@@ -102,7 +102,17 @@ main>.js-btn>.clr-bth:hover{
     background-color: black;
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.55);
 }
-
+main>.js-btn>.dlt-btn{
+    color:#f9004d;
+    background-color: white;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0,0.2);
+    border: none;
+}
+main>.js-btn>.dlt-btn:hover{
+    color: white;
+    background-color: #f9004d;
+    box-shadow: 0 0 0 4px rgba(249, 0, 77,0.2);
+}
 /*------ OUTPUT SIDE  ------*/
 main>.output>h5{
     margin-top: 0.45rem;
